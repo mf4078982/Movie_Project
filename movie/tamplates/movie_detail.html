@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} movie_detail {% endblock %}
+
+{% block contant %}
+<div class="container">
+    <h1 class="mt-4">{{ movie.title }}</h1>
+    
+    <!-- Display the movie image -->
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ movie.image.url }}" class="img-fluid" alt="{{ movie.title }}">
+        </div>
+        <div class="col-md-4">
+            <h1 class="alert alert-dark"><b>Posted by</b></h1>
+            <p>{{ movie.user.username }}</p>
+            <h1 class="alert alert-dark"><b>Description</b></i></h1>
+            <p>{{ movie.description }}</p>
+            
+            <!-- Back to movie list button -->
+            <a href="{% url 'movie_list' %}" class="btn btn-outline-primary shadow">Back to Movie List</a>
+            <a href="{% url 'show' %}" class="btn btn-outline-primary shadow">Back show page</a>
+        </div>
+    </div>
+</div>
+{% endblock contant %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Show Movie List{% endblock %}
+
+{% block contant %}
+
+
+<!-- Movie List Section -->
+<div class="container mt-4">
+    <div class="row">
+        {% for i in show_movie %}
+        <div class="col-sm-3">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="{{ i.image.url }}" class="card-img-top img-fluid" alt="{{ i.user.username }}" style="max-height: 350px; object-fit: cover; object-position: center;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.user.username }}</h5>
+                    <p class="card-text">{{ i.description }}</p>
+                    {% if i.user == user %}
+                    <div class="text-center">
+                        <a href="{% url 'movie' i.id %}" class="btn btn-outline-primary btn-sm mx-1 shadow">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <a href="{% url 'edit' i.id %}" class="btn btn-outline-info btn-sm mx-1 shadow">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a href="{% url 'delete_movie' i.id %}" class="btn btn-outline-danger btn-sm mx-1 shadow">Delete</a>
+                        <a href="{% url 'movie_list' %}" class="btn btn-outline-dark  mx-1 shadow">Add movie</a>
+                    </div> 
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock contant %}

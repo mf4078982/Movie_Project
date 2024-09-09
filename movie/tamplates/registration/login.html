@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block contant %}
+<div class="div contrain">
+    <div class="div row">
+        <div class="div col-sm-4 offset-sm-4">
+            
+<form method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    
+    <button type="submit" class="btn btn-success">Login</button>
+    
+    i connot have an account click  <a href="{% url 'register' %}" class="btn btn-primary">Register</a> here
+    
+    </form>
+    
+    
+    
+        </div>
+    </div>
+</div>
+
+
+{% endblock contant %}

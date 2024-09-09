@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %} Movie App {% endblock title %}
+
+{% block contant %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 text-center">
+            <h1 class="display-3 font-weight-bold text-primary mb-4 animate__animated animate__fadeInDown">
+                <b> Welcome to the Movie App! </b>
+            </h1>
+            <p class="lead text-muted animate__animated animate__fadeInUp">
+                Manage your favorite movies with ease.
+            </p>
+            <hr class="my-4">
+            <p class="text-secondary animate__animated animate__fadeInUp">
+                Use the platform to add, view, and manage movies. 
+                Do have an account? <a href="{% url 'movie_list' %}" class="text-info font-weight-bold">Add movie</a>
+            </p>
+            
+            <div class="d-flex justify-content-center mt-4 animate__animated animate__fadeIn">
+                <a href="{% url 'login' %}" class="btn btn-lg btn-outline-info mx-2 shadow-lg btn-hover">
+                    <i class="fas fa-film"></i> Login
+                </a>
+                <a href="{% url 'register' %}" class="btn btn-lg btn-outline-info mx-2 shadow-lg btn-hover">
+                    <i class="fas fa-user-plus"></i> Register
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Additional CSS styles -->
+<style>
+    .btn-hover {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-hover:hover {
+        background-color: #17a2b8;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .animate__animated {
+        animation-duration: 1s;
+    }
+
+    body {
+        background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+    }
+</style>
+{% endblock contant %}
